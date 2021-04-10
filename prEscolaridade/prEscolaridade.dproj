@@ -113,6 +113,8 @@
             <Form>form_cadPessoa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Classe_pessoa.pas"/>
+        <DCCReference Include="Classe_ServicoPessoa.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
