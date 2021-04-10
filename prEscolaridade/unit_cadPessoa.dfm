@@ -1,0 +1,158 @@
+object form_cadPessoa: Tform_cadPessoa
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Pessoas'
+  ClientHeight = 219
+  ClientWidth = 594
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnActivate = FormActivate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 594
+    Height = 178
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = 8
+    object lbIdade: TLabel
+      Left = 218
+      Top = 39
+      Width = 69
+      Height = 25
+      Caption = 'Idade'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lbGrauEscolaridade: TLabel
+      Left = 40
+      Top = 96
+      Width = 247
+      Height = 25
+      Caption = 'Grau de Escolaridade'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object editIdade: TEdit
+      Left = 320
+      Top = 39
+      Width = 239
+      Height = 21
+      MaxLength = 3
+      NumbersOnly = True
+      TabOrder = 0
+    end
+    object cbGrauEscolaridade: TComboBox
+      Left = 320
+      Top = 103
+      Width = 239
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
+      TabOrder = 1
+      Text = 'Selecione o grau de escolaridade'
+      Items.Strings = (
+        'Selecione o grau de escolaridade'
+        '1 '#8211' Ensino b'#225'sico '
+        '2 '#8211' Ensino M'#233'dio'
+        '3 '#8211' Ensino Superior'
+        '4 '#8211' P'#243's-graduado'
+        '5 '#8211' Mestrado'
+        '6 '#8211' Doutorado')
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 178
+    Width = 594
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    ExplicitTop = 184
+    ExplicitWidth = 733
+    object btnSalvar: TBitBtn
+      Left = 48
+      Top = 6
+      Width = 75
+      Height = 25
+      Caption = 'Salvar'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+        555555555555555555555555555555555555555555FF55555555555559055555
+        55555555577FF5555555555599905555555555557777F5555555555599905555
+        555555557777FF5555555559999905555555555777777F555555559999990555
+        5555557777777FF5555557990599905555555777757777F55555790555599055
+        55557775555777FF5555555555599905555555555557777F5555555555559905
+        555555555555777FF5555555555559905555555555555777FF55555555555579
+        05555555555555777FF5555555555557905555555555555777FF555555555555
+        5990555555555555577755555555555555555555555555555555}
+      NumGlyphs = 2
+      TabOrder = 0
+    end
+    object btnCancelar: TBitBtn
+      Left = 272
+      Top = 6
+      Width = 75
+      Height = 25
+      Caption = 'Cancelar'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00500005000555
+        555557777F777555F55500000000555055557777777755F75555005500055055
+        555577F5777F57555555005550055555555577FF577F5FF55555500550050055
+        5555577FF77577FF555555005050110555555577F757777FF555555505099910
+        555555FF75777777FF555005550999910555577F5F77777775F5500505509990
+        3055577F75F77777575F55005055090B030555775755777575755555555550B0
+        B03055555F555757575755550555550B0B335555755555757555555555555550
+        BBB35555F55555575F555550555555550BBB55575555555575F5555555555555
+        50BB555555555555575F555555555555550B5555555555555575}
+      NumGlyphs = 2
+      TabOrder = 1
+      OnClick = btnCancelarClick
+    end
+    object btnSair: TBitBtn
+      Left = 484
+      Top = 6
+      Width = 75
+      Height = 25
+      Caption = 'Sair'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00330000000000
+        03333377777777777F333301BBBBBBBB033333773F3333337F3333011BBBBBBB
+        0333337F73F333337F33330111BBBBBB0333337F373F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F337F33337F333301110BBBBB0333337F337FF3337F33330111B0BBBB
+        0333337F337733337F333301110BBBBB0333337F337F33337F333301110BBBBB
+        0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
+        0333337F777FFFFF7F3333000000000003333377777777777333}
+      NumGlyphs = 2
+      TabOrder = 2
+      OnClick = btnSairClick
+    end
+  end
+end
