@@ -20,6 +20,7 @@ type
     procedure btnSairClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,6 +34,8 @@ implementation
 
 {$R *.dfm}
 
+uses Classe_pessoa, Classe_ServicoPessoa, unit_principal;
+
 procedure Tform_cadPessoa.btnCancelarClick(Sender: TObject);
 begin
    editIdade.Clear;
@@ -43,6 +46,32 @@ end;
 procedure Tform_cadPessoa.btnSairClick(Sender: TObject);
 begin
     close;
+end;
+
+procedure Tform_cadPessoa.btnSalvarClick(Sender: TObject);
+  var
+    pessoa: TPessoa;
+begin
+    if (editIdade.Text = '') then
+       begin
+         ShowMessage('O campo idade não pode estar vazio!');
+         editIdade.SetFocus();
+         exit;
+       end;
+
+    if (cbGrauEscolaridade.ItemIndex = 0) then
+       begin
+         ShowMessage('O grau de escolaridade deve ser selecionado!');
+         cbGrauEscolaridade.SetFocus();
+         exit;
+       end;
+
+    pessoa := TPessoa.Create;
+    pessoa.setIdade(StrToInt(editIdade.Text));
+    pessoa.setGrauEscolaridade(cbGrauEscolaridade.ItemIndex);
+    form_principal.ServicoPessoa.setLista(pessoa);
+
+    self.btnCancelarClick(btnCancelar);
 end;
 
 procedure Tform_cadPessoa.FormActivate(Sender: TObject);

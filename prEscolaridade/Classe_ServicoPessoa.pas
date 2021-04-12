@@ -7,9 +7,9 @@ uses
 type
     TServicoPessoa = class
       private
-            lista = TList<Pessoa>;
+            lista = TList<TPessoa>;
       public
-            procedure setLista(pessoa:Pessoa);
+            procedure setLista(pessoa:TPessoa);
 
     end;
 
@@ -17,7 +17,7 @@ implementation
 
 { TServicoPessoa }
 
-procedure TServicoPessoa.setLista(pessoa: Pessoa);
+procedure TServicoPessoa.setLista(pessoa: TPessoa);
 begin
      self.lista.Add(pessoa);
 end;

@@ -14,6 +14,7 @@ object form_principal: Tform_principal
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu

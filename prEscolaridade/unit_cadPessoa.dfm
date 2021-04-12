@@ -22,7 +22,6 @@ object form_cadPessoa: Tform_cadPessoa
     Height = 178
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 8
     object lbIdade: TLabel
       Left = 218
       Top = 39
@@ -84,8 +83,6 @@ object form_cadPessoa: Tform_cadPessoa
     Height = 41
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 184
-    ExplicitWidth = 733
     object btnSalvar: TBitBtn
       Left = 48
       Top = 6
@@ -107,6 +104,7 @@ object form_cadPessoa: Tform_cadPessoa
         5990555555555555577755555555555555555555555555555555}
       NumGlyphs = 2
       TabOrder = 0
+      OnClick = btnSalvarClick
     end
     object btnCancelar: TBitBtn
       Left = 272

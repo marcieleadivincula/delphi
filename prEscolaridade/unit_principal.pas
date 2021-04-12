@@ -16,6 +16,7 @@ type
     Resultados1: TMenuItem;
     procedure Pessoas1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,6 +36,11 @@ uses unit_dados, unit_cadPessoa;
 procedure Tform_principal.FormCreate(Sender: TObject);
 begin
      ServicoPessoa := TServicoPessoa.Create;
+end;
+
+procedure Tform_principal.FormDestroy(Sender: TObject);
+begin
+    FreeAndNil(ServicoPessoa);
 end;
 
 procedure Tform_principal.Pessoas1Click(Sender: TObject);

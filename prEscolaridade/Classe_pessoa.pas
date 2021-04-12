@@ -3,14 +3,14 @@ unit Classe_pessoa;
 interface
 
 type
-    Pessoa = class
+    TPessoa = class
     private
       idade:integer;
       grauEscolaridade:integer;
     public
       procedure setIdade(idade:integer);
       function getIdade:integer;
-      procedure setGrauEscolaridade(grauEcolaridade:integer);
+      procedure setGrauEscolaridade(grauEscolaridade:integer);
       function getGrauEscolaridade:integer;
     end;
 
@@ -18,22 +18,22 @@ implementation
 
 { Pessoa }
 
-function Pessoa.getGrauEscolaridade: integer;
+function TPessoa.getGrauEscolaridade: integer;
 begin
     result := self.grauEscolaridade;
 end;
 
-function Pessoa.getIdade: integer;
+function TPessoa.getIdade: integer;
 begin
     result := self.idade;
 end;
 
-procedure Pessoa.setGrauEscolaridade(grauEscolaridade: integer);
+procedure TPessoa.setGrauEscolaridade(grauEscolaridade: integer);
 begin
      self.grauEscolaridade := grauEscolaridade;
 end;
 
-procedure Pessoa.setIdade(idade: integer);
+procedure TPessoa.setIdade(idade: integer);
 begin
     self.idade := idade;
 end;
