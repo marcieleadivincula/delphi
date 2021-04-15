@@ -107,6 +107,27 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="unit_cidade.pas">
+            <Form>form_cadCidade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unit_estado.pas">
+            <Form>form_cadEstado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unit_bairro.pas">
+            <Form>form_cadBairro</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unit_pais.pas">
+            <Form>form_cadPais</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Endereco.pas"/>
+        <DCCReference Include="Estado.pas"/>
+        <DCCReference Include="Pais.pas"/>
+        <DCCReference Include="Cidade.pas"/>
+        <DCCReference Include="Bairro.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
