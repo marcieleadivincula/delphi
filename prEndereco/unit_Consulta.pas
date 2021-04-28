@@ -25,6 +25,7 @@ type
     dsConsulta: TDataSource;
     qrConsulta: TFDQuery;
     procedure spSairClick(Sender: TObject);
+    procedure spCarregarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,9 +41,14 @@ implementation
 
 uses unit_dados;
 
+procedure Tform_Consulta.spCarregarClick(Sender: TObject);
+begin
+     ModalResult := mrOk;
+end;
+
 procedure Tform_Consulta.spSairClick(Sender: TObject);
 begin
-     close;
+     ModalResult := mrCancel;
 end;
 
 end.
