@@ -81,6 +81,7 @@ object form_Consulta: Tform_Consulta
       Width = 105
       Height = 33
       Caption = 'Carregar'
+      OnClick = spCarregarClick
     end
     object spSair: TSpeedButton
       Left = 552
@@ -112,7 +113,6 @@ object form_Consulta: Tform_Consulta
     Top = 224
   end
   object qrConsulta: TFDQuery
-    Active = True
     Connection = dm_dados.TFDConn
     SQL.Strings = (
       'select * from cidade;')
