@@ -3,8 +3,7 @@ unit unit_CadCidade;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Obj_Cidade;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Obj_Utilitario, Obj_Consulta, Obj_Cidade;
 
 type
   Tform_cadCidade = class(TForm)
@@ -29,6 +28,7 @@ type
     procedure btnSalvarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
+    procedure spConsultarClick(Sender: TObject);
   public
       Cidade: TObj_Cidade;
   end;
@@ -39,8 +39,6 @@ var
 implementation
 
 {$R *.dfm}
-
-uses Obj_Utilitario;
 
 procedure Tform_cadCidade.btnExcluirClick(Sender: TObject);
 begin
@@ -127,6 +125,27 @@ end;
 procedure Tform_cadCidade.FormDestroy(Sender: TObject);
 begin
     Cidade.Free;
+end;
+
+procedure Tform_cadCidade.spConsultarClick(Sender: TObject);
+var
+   Consulta:TObj_Consulta;
+   sAux:string;
+begin
+     editCodigo.SetFocus;
+     Consulta := TObj_Consulta.Create;
+     Consulta.setTitulo('Consulta de cidades');
+     Consulta.setTextoSql('SELECT * FROM cidade ORDER BY DESCRICAO');
+     Consulta.setColunaRetorno(0);
+     sAux := Consulta.getConsulta;
+
+     if (sAux <> '') then
+         begin
+           editCodigo.Text := sAux;
+           editCidade.SetFocus;
+         end
+     else
+        FormActivate(self);
 end;
 
 end.
