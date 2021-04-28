@@ -2,7 +2,7 @@ unit Obj_Pais;
 
 interface
 uses
-    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs;
+    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, System.UITypes, FireDAC.Stan.Param, System.Classes, Data.DB;
 
 type
   TObj_Pais = class
@@ -30,27 +30,27 @@ implementation
 { TObj_Estado }
 
 
-function TObj_Estado.getCodigo: integer;
+function TObj_Pais.getCodigo: integer;
 begin
      result := self.codigo;
 end;
 
-function TObj_Estado.getDescricao: string;
+function TObj_Pais.getDescricao: string;
 begin
      result := self.descricao;
 end;
 
-procedure TObj_Estado.setCodigo(codigo: integer);
+procedure TObj_Pais.setCodigo(codigo: integer);
 begin
      self.codigo := codigo;
 end;
 
-procedure TObj_Estado.setDescricao(descricao: string);
+procedure TObj_Pais.setDescricao(descricao: string);
 begin
      self.descricao := descricao;
 end;
 
-procedure TObj_Estado.update;
+procedure TObj_Pais.update;
 var
    qrUpdate: TFDQuery;
 begin
@@ -73,7 +73,7 @@ begin
 
 end;
 
-function TObj_Estado.delete: boolean;
+function TObj_Pais.delete: boolean;
 var
   qrDelete: TFDQuery;
 begin
@@ -98,7 +98,7 @@ begin
 
 end;
 
-procedure TObj_Estado.insert;
+procedure TObj_Pais.insert;
 var
    qrInsert: TFDQuery;
 begin
@@ -120,7 +120,7 @@ begin
 
 end;
 
-function TObj_Estado.select: boolean;
+function TObj_Pais.select: boolean;
 var
   qrSelect: TFDQuery;
 begin
