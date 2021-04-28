@@ -3,7 +3,7 @@ unit Obj_Bairro;
 interface
 
 uses
-    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, unit_CadBairro;
+    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, unit_CadBairro, FireDAC.Stan.Param, System.Classes, Data.DB;
 
 type
 TObj_Bairro = class
