@@ -3,7 +3,7 @@ unit Obj_Cidade;
 interface
 
 uses
-    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs;
+    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, System.UITypes, FireDAC.Stan.Param, System.Classes, Data.DB;
 
 type
     TObj_Cidade = class
@@ -33,8 +33,6 @@ type
 implementation
 
 { TObj_Cidade }
-
-uses unit_CadCidade;
 
 function TObj_Cidade.delete:boolean;
 var
