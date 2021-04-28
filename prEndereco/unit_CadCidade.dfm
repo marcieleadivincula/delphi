@@ -25,7 +25,6 @@ object form_cadCidade: Tform_cadCidade
     Height = 209
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 469
     object lbCodigo: TLabel
       Left = 32
       Top = 16
@@ -45,6 +44,7 @@ object form_cadCidade: Tform_cadCidade
       Top = 35
       Width = 23
       Height = 22
+      OnClick = spConsultarClick
     end
     object lbCep: TLabel
       Left = 32
@@ -87,9 +87,6 @@ object form_cadCidade: Tform_cadCidade
     Height = 41
     Align = alBottom
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 215
-    ExplicitWidth = 469
     object btnSalvar: TBitBtn
       Left = 32
       Top = 6
