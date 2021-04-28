@@ -2,7 +2,6 @@ program prEndereco;
 
 uses
   Vcl.Forms,
-  Obj_Cidade in 'classes\Obj_Cidade.pas',
   unit_CadBairro in 'unit_CadBairro.pas' {form_cadBairro},
   unit_CadCidade in 'unit_CadCidade.pas' {form_cadCidade},
   unit_CadEstado in 'unit_CadEstado.pas' {form_cadEstado},
@@ -15,7 +14,9 @@ uses
   Obj_Estado in 'classes\Obj_Estado.pas',
   unit_Consulta in 'unit_Consulta.pas' {form_Consulta},
   Obj_Logradouro in 'classes\Obj_Logradouro.pas',
-  Obj_Pais in 'classes\Obj_Pais.pas';
+  Obj_Pais in 'classes\Obj_Pais.pas',
+  Obj_Consulta in 'classes\Obj_Consulta.pas',
+  Obj_Cidade in 'classes\Obj_Cidade.pas';
 
 {$R *.res}
 
