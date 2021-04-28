@@ -100,7 +100,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="classes\Obj_Cidade.pas"/>
         <DCCReference Include="unit_CadBairro.pas">
             <Form>form_cadBairro</Form>
             <FormType>dfm</FormType>
@@ -139,6 +138,8 @@
         </DCCReference>
         <DCCReference Include="classes\Obj_Logradouro.pas"/>
         <DCCReference Include="classes\Obj_Pais.pas"/>
+        <DCCReference Include="classes\Obj_Consulta.pas"/>
+        <DCCReference Include="classes\Obj_Cidade.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
