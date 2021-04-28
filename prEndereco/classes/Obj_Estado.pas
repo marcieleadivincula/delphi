@@ -2,7 +2,7 @@ unit Obj_Estado;
 
 interface
 uses
-    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs;
+    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, System.UITypes, FireDAC.Stan.Param, System.Classes, Data.DB;
 
 type
   TObj_Estado = class
