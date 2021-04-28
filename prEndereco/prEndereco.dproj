@@ -83,6 +83,8 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -98,36 +100,45 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="unit_endereco.pas">
-            <Form>form_principal</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="dm_dados.pas">
-            <Form>DataModule1</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="unit_cidade.pas">
-            <Form>form_cadCidade</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="unit_estado.pas">
-            <Form>form_cadEstado</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="unit_bairro.pas">
+        <DCCReference Include="classes\Obj_Cidade.pas"/>
+        <DCCReference Include="unit_CadBairro.pas">
             <Form>form_cadBairro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unit_pais.pas">
+        <DCCReference Include="unit_CadCidade.pas">
+            <Form>form_cadCidade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unit_CadEstado.pas">
+            <Form>form_cadEstado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unit_CadPais.pas">
             <Form>form_cadPais</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Endereco.pas"/>
-        <DCCReference Include="Estado.pas"/>
-        <DCCReference Include="Pais.pas"/>
-        <DCCReference Include="Cidade.pas"/>
-        <DCCReference Include="Bairro.pas"/>
+        <DCCReference Include="unit_dados.pas">
+            <Form>dm_dados</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="unit_principal.pas">
+            <Form>form_principal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unit_CadLogradouro.pas">
+            <Form>form_cadLogradouro</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="classes\Obj_Utilitario.pas"/>
+        <DCCReference Include="classes\Obj_Bairro.pas"/>
+        <DCCReference Include="classes\Obj_Estado.pas"/>
+        <DCCReference Include="unit_Consulta.pas">
+            <Form>form_Consulta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="classes\Obj_Logradouro.pas"/>
+        <DCCReference Include="classes\Obj_Pais.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -148,6 +159,10 @@
                 <Source>
                     <Source Name="MainSource">prEndereco.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="Win32\Debug\prEndereco.exe" Configuration="Debug" Class="ProjectOutput">
