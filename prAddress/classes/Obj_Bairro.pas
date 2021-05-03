@@ -1,73 +1,67 @@
-unit Obj_Pais;
+unit Obj_Bairro;
 
 interface
+
 uses
-    unit_dados, System.SysUtils, Vcl.Dialogs, System.UITypes, System.Classes, FireDAC.Comp.Client, FireDAC.Stan.Param;
+    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, FireDAC.Stan.Param, System.Classes, Data.DB;
 
 type
-  TObj_Pais = class
+TObj_Bairro = class
   private
         codigo: integer;
         descricao:string;
-        status:byte; //0 --> gravar(insert) e 1 --> alterar(update)
+        //status:byte; //0 --> gravar(insert) e 1 --> alterar(update)
 
   public
         procedure setCodigo(codigo:integer);
         function getCodigo:integer;
         procedure setDescricao(descricao:string);
         function getDescricao:string;
-        procedure setStatus(status:byte);
-        function getStatus:byte;
+//        procedure setStatus(status:byte);
+//        function getStatus:byte;
 
         procedure insert;
         procedure update;
         function delete:boolean;
         function select:boolean;
+//        function getUltimoCodigoInserido:integer;
+//        function existeRelacionamentoByEndereco:boolean;
 end;
 
 implementation
 
-{ TObj_Pais }
+{ TObj_Bairro }
 
+uses unit_CadBairro;
 
-function TObj_Pais.getCodigo: integer;
+function TObj_Bairro.getCodigo: integer;
 begin
      result := self.codigo;
 end;
 
-function TObj_Pais.getDescricao: string;
+function TObj_Bairro.getDescricao: string;
 begin
-     result := self.descricao;
+    result := self.descricao;
 end;
 
-function TObj_Pais.getStatus: byte;
-begin
-     result := self.status;
-end;
-
-procedure TObj_Pais.setCodigo(codigo: integer);
+procedure TObj_Bairro.setCodigo(codigo: integer);
 begin
      self.codigo := codigo;
 end;
 
-procedure TObj_Pais.setDescricao(descricao: string);
+procedure TObj_Bairro.setDescricao(descricao: string);
 begin
-     self.descricao := descricao;
+    self.descricao := descricao;
 end;
 
-procedure TObj_Pais.setStatus(status: byte);
-begin
-     self.status := status;
-end;
-
-procedure TObj_Pais.update;
+procedure TObj_Bairro.update;
 var
    qrUpdate: TFDQuery;
 begin
    qrUpdate := TFDQuery.Create(nil);
    qrUpdate.Connection := dm_dados.TFDConn;
    qrUpdate.SQL.Clear;
-   qrUpdate.SQL.Add('UPDATE pais SET descricao = :descricao) WHERE(codigo = :codigo)');
+   qrUpdate.SQL.Add('UPDATE bairro SET descricao = :descricao) WHERE (codigo = :codigo)');
    qrUpdate.Params[0].AsString := self.getDescricao;
    qrUpdate.Params[1].AsInteger := self.getCodigo;
 
@@ -80,17 +74,16 @@ begin
    end;
 
    qrUpdate.Free;
-
 end;
 
-function TObj_Pais.delete: boolean;
+function TObj_Bairro.delete: boolean;
 var
   qrDelete: TFDQuery;
 begin
    qrDelete := TFDQuery.Create(nil);
    qrDelete.Connection := dm_dados.TFDConn;
    qrDelete.SQL.Clear;
-   qrDelete.SQL.Add('DELETE FROM pais WHERE(codigo = :codigo)');
+   qrDelete.SQL.Add('DELETE FROM bairro WHERE (codigo = :codigo)');
    qrDelete.Params[0].AsInteger := self.getCodigo;
 
    try
@@ -108,14 +101,14 @@ begin
 
 end;
 
-procedure TObj_Pais.insert;
+procedure TObj_Bairro.insert;
 var
    qrInsert: TFDQuery;
 begin
    qrInsert := TFDQuery.Create(nil);
    qrInsert.Connection := dm_dados.TFDConn;
    qrInsert.SQL.Clear;
-   qrInsert.SQL.Add('INSERT INTO pais VALUES(0, :descricao)');
+   qrInsert.SQL.Add('INSERT INTO bairro VALUES(0, :descricao)');
    qrInsert.Params[0].AsString := self.getDescricao;
 
    try
@@ -130,7 +123,7 @@ begin
 
 end;
 
-function TObj_Pais.select: boolean;
+function TObj_Bairro.select: boolean;
 var
   qrSelect: TFDQuery;
 begin
@@ -138,7 +131,7 @@ begin
    qrSelect := TFDQuery.Create(nil);
    qrSelect.Connection := dm_dados.TFDConn;
    qrSelect.SQL.Clear;
-   qrSelect.SQL.Add('SELECT * FROM pais WHERE(codigo = :codigo)');
+   qrSelect.SQL.Add('SELECT * FROM bairro WHERE (codigo = :codigo)');
    qrSelect.Params[0].AsInteger := self.getCodigo;
 
    try
@@ -159,5 +152,5 @@ begin
 
 end;
 
-
 end.
+

@@ -3,7 +3,7 @@ unit unit_Consulta;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, System.UITypes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
   Data.DB, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
@@ -12,21 +12,20 @@ uses
 
 type
   Tform_Consulta = class(TForm)
-    pnlTopConsulta: TPanel;
-    pnlBottomConsulta: TPanel;
-    lbPesquisaPor: TLabel;
-    editPesquisa: TEdit;
-    lbPesquisa: TLabel;
-    lbNRegistros: TLabel;
-    lbRegistros: TLabel;
+    pnlTop: TPanel;
+    pnlBottom: TPanel;
+    lblPesquisaPor: TLabel;
+    lblNRegistros: TLabel;
+    editPesquisaPor: TEdit;
+    lblPesquisa: TLabel;
+    lblRegistros: TLabel;
     spCarregar: TSpeedButton;
     spSair: TSpeedButton;
-    dbGridConsulta: TDBGrid;
+    dbGrid: TDBGrid;
     dsConsulta: TDataSource;
     qrConsulta: TFDQuery;
-    procedure spSairClick(Sender: TObject);
     procedure spCarregarClick(Sender: TObject);
-    procedure FormResize(Sender: TObject);
+    procedure spSairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,12 +39,7 @@ implementation
 
 {$R *.dfm}
 
-uses unit_dados, Obj_Utilitario;
-
-procedure Tform_Consulta.FormResize(Sender: TObject);
-begin
-     TObj_Utilitario.AjustarTamanhoDBGrid(form_Consulta.dbGridConsulta);
-end;
+uses unit_Dados;
 
 procedure Tform_Consulta.spCarregarClick(Sender: TObject);
 begin

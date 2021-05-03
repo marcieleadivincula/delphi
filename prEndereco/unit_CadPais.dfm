@@ -11,7 +11,10 @@ object form_cadPais: Tform_cadPais
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poScreenCenter
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object pnlCadPais: TPanel
@@ -21,9 +24,6 @@ object form_cadPais: Tform_cadPais
     Height = 190
     Align = alClient
     TabOrder = 0
-    ExplicitTop = -6
-    ExplicitWidth = 649
-    ExplicitHeight = 202
     object Label1: TLabel
       Left = 48
       Top = 37
@@ -33,7 +33,7 @@ object form_cadPais: Tform_cadPais
     end
     object lbPais: TLabel
       Left = 48
-      Top = 125
+      Top = 109
       Width = 19
       Height = 13
       Caption = 'Pa'#237's'
@@ -43,6 +43,7 @@ object form_cadPais: Tform_cadPais
       Top = 55
       Width = 23
       Height = 22
+      OnClick = spConsultarClick
     end
     object editCodigo: TEdit
       Left = 48
@@ -54,7 +55,7 @@ object form_cadPais: Tform_cadPais
     end
     object editPais: TEdit
       Left = 48
-      Top = 144
+      Top = 128
       Width = 451
       Height = 21
       MaxLength = 100
@@ -68,8 +69,6 @@ object form_cadPais: Tform_cadPais
     Height = 54
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 177
-    ExplicitWidth = 635
     object btnSalvar: TBitBtn
       Left = 40
       Top = 16
@@ -77,6 +76,7 @@ object form_cadPais: Tform_cadPais
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
+      OnClick = btnSalvarClick
     end
     object btnExcluir: TBitBtn
       Left = 184

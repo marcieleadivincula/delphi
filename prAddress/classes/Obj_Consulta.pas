@@ -1,21 +1,25 @@
-unit Obj_Consulta;
+ï»¿unit Obj_Consulta;
 
 interface
 uses
-    unit_Consulta, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, System.UITypes, FireDAC.Stan.Param, System.Classes, Data.DB;
+    unit_Consulta, System.SysUtils, Vcl.Dialogs, System.UITypes, FireDAC.Stan.Param, System.Classes, Data.DB, FireDAC.Comp.Client,
+    Winapi.Windows, Winapi.Messages, System.Variants, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
 
 type
     TObj_Consulta = class
       private
              titulo:string;      //caption da tela
-             textoSql:string;    //comando de seleção
+             textoSql:string;    //comando de seleÃ§Ã£o
+             //retorno:string;     //valor a ser retornado
              colunaRetorno:integer; //coluna que tem o valor a ser retornado
-                                    //se o valor for -1 --> não retorna nada
+                                    //se o valor for -1 --> nÃ£o retorna nada
       public
             procedure setTitulo(titulo:string);
             function getTitulo:string;
             procedure setTextoSql(textoSql:string);
             function getTextoSql:string;
+//            procedure setRetorno(retorno:string);
+//            function getRetorno:string;
             procedure setColunaRetorno(colunaRetorno:integer);
             function getColunaRetorno:integer;
 
@@ -26,13 +30,11 @@ implementation
 
 { TObj_Consulta }
 
-uses Obj_Utilitario;
-
 function TObj_Consulta.getConsulta:string;
 begin
     result := '';
     if (form_Consulta = nil) then
-        form_Consulta := Tform_Consulta.Create(nil);
+        form_Consulta := TForm_Consulta.Create(nil);
 
     form_Consulta.Caption := self.getTitulo;
     form_Consulta.qrConsulta.Close;
@@ -44,8 +46,7 @@ begin
       form_Consulta.qrConsulta.Last;
       form_Consulta.qrConsulta.First;
 
-      form_Consulta.lbRegistros.Caption := FormatFloat('###,###,#00', form_Consulta.qrConsulta.RecordCount);
-      TObj_Utilitario.AjustarTamanhoDBGrid(form_Consulta.dbGridConsulta);
+      form_Consulta.lblRegistros.Caption := FormatFloat('###,###,#00', form_Consulta.qrConsulta.RecordCount);
 
       if (form_Consulta.ShowModal = mrOk) then
           if (self.getColunaRetorno >= 0) then
@@ -65,6 +66,11 @@ begin
      result := self.colunaRetorno;
 end;
 
+//function TObj_Consulta.getRetorno: string;
+//begin
+//     result := self.retorno;
+//end;
+
 function TObj_Consulta.getTextoSql: string;
 begin
      result := self.textoSql;
@@ -80,6 +86,11 @@ begin
     self.colunaRetorno := colunaRetorno;
 end;
 
+//procedure TObj_Consulta.setRetorno(retorno: string);
+//begin
+//     self.retorno := retorno;
+//end;
+
 procedure TObj_Consulta.setTextoSql(textoSql: string);
 begin
      self.textoSql := textoSql;
@@ -91,3 +102,4 @@ begin
 end;
 
 end.
+

@@ -2,8 +2,8 @@ object form_principal: Tform_principal
   Left = 0
   Top = 0
   Caption = 'Cadastro de Endere'#231'o'
-  ClientHeight = 201
-  ClientWidth = 447
+  ClientHeight = 320
+  ClientWidth = 655
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +16,8 @@ object form_principal: Tform_principal
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu: TMainMenu
-    Left = 160
-    Top = 88
+    Left = 288
+    Top = 112
     object mCadastros: TMenuItem
       Caption = 'Cadastros'
       ShortCut = 16464
@@ -49,6 +49,18 @@ object form_principal: Tform_principal
       object mEndereco: TMenuItem
         Caption = 'Endere'#231'o'
         ShortCut = 16452
+      end
+    end
+    object Consultas1: TMenuItem
+      Caption = 'Consultas'
+      object Endereoporcidade1: TMenuItem
+        Caption = 'Endere'#231'o por Cidade'
+      end
+      object Endereoporestado1: TMenuItem
+        Caption = 'Endere'#231'o por Estado'
+      end
+      object Endereoporpas1: TMenuItem
+        Caption = 'Endere'#231'o por Pa'#237's'
       end
     end
   end

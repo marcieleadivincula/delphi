@@ -3,7 +3,13 @@ unit unit_CadCidade;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Obj_Utilitario, Obj_Consulta, Obj_Cidade;
+  Obj_Utilitario, Obj_Consulta, Obj_Cidade,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 type
   Tform_cadCidade = class(TForm)
@@ -60,7 +66,7 @@ end;
 
 procedure Tform_cadCidade.btnSairClick(Sender: TObject);
 begin
-     close;
+     Close;
 end;
 
 procedure Tform_cadCidade.btnSalvarClick(Sender: TObject);
@@ -135,7 +141,7 @@ begin
      editCodigo.SetFocus;
      Consulta := TObj_Consulta.Create;
      Consulta.setTitulo('Consulta de cidades');
-     Consulta.setTextoSql('SELECT * FROM cidade ORDER BY DESCRICAO');
+     Consulta.setTextoSql('SELECT * FROM cidade ORDER BY descricao');
      Consulta.setColunaRetorno(0);
      sAux := Consulta.getConsulta;
 

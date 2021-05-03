@@ -1,11 +1,11 @@
-unit Obj_Estado;
+unit Obj_State;
 
 interface
 uses
-    unit_dados, System.SysUtils, Vcl.Dialogs, System.UITypes, System.Classes, FireDAC.Comp.Client, FireDAC.Stan.Param;
+    unit_dados, unit_CadState, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, System.UITypes, FireDAC.Stan.Param, System.Classes, Data.DB;
 
 type
-  TObj_Estado = class
+  TObj_State = class
   private
         codigo: integer;
         descricao:string;
@@ -26,111 +26,55 @@ type
         procedure update;
         function delete:boolean;
         function select:boolean;
-        function getUltimoCodigoInserido:integer;
-        function existeRelacionamentoByEndereco:boolean;
+//        function getUltimoCodigoInserido:integer;
+//        function existeRelacionamentoByEndereco:boolean;
 end;
 
 implementation
 
 { TObj_Estado }
 
-function TObj_Estado.existeRelacionamentoByEndereco: boolean;
-var
-  qrSelect: TFDQuery;
-begin
-   result := false;
-   qrSelect := TFDQuery.Create(nil);
-   qrSelect.Connection := dm_dados.TFDConn;
-   qrSelect.SQL.Clear;
-   qrSelect.SQL.Add('SELECT codigo FROM endereco WHERE(estado = :estado)');
-   qrSelect.Params[0].AsInteger := self.getCodigo;
-
-   try
-     qrSelect.ExecSQL;
-
-     if (not qrSelect.IsEmpty) then
-        begin
-         result := true;
-      end;
-   except
-      on e:Exception do
-      begin
-         result := false;
-         ShowMessage('Erro no select do existeRelacionamentoByEndereco: ' + e.ToString);
-      end;
-   end;
-
-   qrSelect.Free;
-
-end;
-
-function TObj_Estado.getCodigo: integer;
+function TObj_State.getCodigo: integer;
 begin
      result := self.codigo;
 end;
 
-function TObj_Estado.getDescricao: string;
+function TObj_State.getDescricao: string;
 begin
      result := self.descricao;
 end;
 
-function TObj_Estado.getSigla: string;
+function TObj_State.getSigla: string;
 begin
      result := self.sigla;
 end;
 
-function TObj_Estado.getStatus: byte;
+function TObj_State.getStatus: byte;
 begin
      result := self.status;
 end;
 
-function TObj_Estado.getUltimoCodigoInserido: integer;
-var
-  qrSelectLastId: TFDQuery;
-begin
-   result := 0;
-   qrSelectLastId := TFDQuery.Create(nil);
-   qrSelectLastId.Connection := dm_dados.TFDConn;
-   qrSelectLastId.SQL.Clear;
-   qrSelectLastId.SQL.Add('SELECT last_insert_id() codigo');
-
-   try
-     qrSelectLastId.Open;
-
-     if (not qrSelectLastId.IsEmpty) then
-        begin
-            result := qrSelectLastId.Fields[0].AsInteger;
-        end;
-   except
-      on e:Exception do
-       ShowMessage('Erro no select_last_id: ' + e.ToString);
-   end;
-
-   qrSelectLastId.Free;
-
-end;
-
-procedure TObj_Estado.setCodigo(codigo: integer);
+procedure TObj_State.setCodigo(codigo: integer);
 begin
      self.codigo := codigo;
 end;
 
-procedure TObj_Estado.setDescricao(descricao: string);
+procedure TObj_State.setDescricao(descricao: string);
 begin
      self.descricao := descricao;
 end;
 
-procedure TObj_Estado.setSigla(sigla: string);
+procedure TObj_State.setSigla(sigla: string);
 begin
      self.sigla := sigla;
 end;
 
-procedure TObj_Estado.setStatus(status: byte);
+procedure TObj_State.setStatus(status: byte);
 begin
      self.status := status;
 end;
 
-procedure TObj_Estado.update;
+procedure TObj_State.update;
 var
    qrUpdate: TFDQuery;
 begin
@@ -153,7 +97,7 @@ begin
    qrUpdate.Free;
 end;
 
-procedure TObj_Estado.insert;
+procedure TObj_State.insert;
 var
    qrInsert: TFDQuery;
 begin
@@ -175,7 +119,7 @@ begin
    qrInsert.Free;
 end;
 
-function TObj_Estado.delete: boolean;
+function TObj_State.delete: boolean;
 var
   qrDelete: TFDQuery;
 begin
@@ -200,7 +144,7 @@ begin
 
 end;
 
-function TObj_Estado.select: boolean;
+function TObj_State.select: boolean;
 var
   qrSelect: TFDQuery;
 begin
@@ -231,3 +175,4 @@ begin
 end;
 
 end.
+

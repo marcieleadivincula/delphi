@@ -2,8 +2,8 @@ object form_cadEstado: Tform_cadEstado
   Left = 0
   Top = 0
   Caption = 'Cadastro de Estado'
-  ClientHeight = 270
-  ClientWidth = 487
+  ClientHeight = 235
+  ClientWidth = 564
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,18 +11,21 @@ object form_cadEstado: Tform_cadEstado
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poScreenCenter
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object pnlCadEstado: TPanel
     Left = 0
     Top = 0
-    Width = 487
-    Height = 212
+    Width = 564
+    Height = 177
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 626
-    ExplicitHeight = 175
+    ExplicitWidth = 487
+    ExplicitHeight = 212
     object lbCodigo: TLabel
       Left = 32
       Top = 16
@@ -31,15 +34,15 @@ object form_cadEstado: Tform_cadEstado
       Caption = 'C'#243'digo'
     end
     object lbSigla: TLabel
-      Left = 32
-      Top = 80
+      Left = 272
+      Top = 81
       Width = 22
       Height = 13
       Caption = 'Sigla'
     end
     object lbEstado: TLabel
       Left = 32
-      Top = 145
+      Top = 81
       Width = 33
       Height = 13
       Caption = 'Estado'
@@ -49,6 +52,7 @@ object form_cadEstado: Tform_cadEstado
       Top = 34
       Width = 23
       Height = 22
+      OnClick = spConsultarClick
     end
     object editCodigo: TEdit
       Left = 32
@@ -59,8 +63,8 @@ object form_cadEstado: Tform_cadEstado
       TabOrder = 0
     end
     object editSigla: TEdit
-      Left = 32
-      Top = 99
+      Left = 272
+      Top = 100
       Width = 219
       Height = 21
       MaxLength = 2
@@ -68,7 +72,7 @@ object form_cadEstado: Tform_cadEstado
     end
     object editEstado: TEdit
       Left = 32
-      Top = 164
+      Top = 100
       Width = 219
       Height = 21
       MaxLength = 100
@@ -77,32 +81,34 @@ object form_cadEstado: Tform_cadEstado
   end
   object pnlBtnsEstado: TPanel
     Left = 0
-    Top = 212
-    Width = 487
+    Top = 177
+    Width = 564
     Height = 58
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 175
-    ExplicitWidth = 626
+    ExplicitTop = 212
+    ExplicitWidth = 487
     object btnSalvar: TBitBtn
       Left = 32
-      Top = 16
+      Top = 14
       Width = 75
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
+      OnClick = btnSalvarClick
     end
     object btnExcluir: TBitBtn
-      Left = 139
-      Top = 16
+      Left = 147
+      Top = 14
       Width = 75
       Height = 25
       Caption = 'Excluir'
       TabOrder = 1
+      OnClick = btnExcluirClick
     end
     object btnSair: TBitBtn
-      Left = 368
-      Top = 16
+      Left = 416
+      Top = 14
       Width = 75
       Height = 25
       Caption = 'Sair'
@@ -110,7 +116,7 @@ object form_cadEstado: Tform_cadEstado
       OnClick = btnSairClick
     end
     object btnCancelar: TBitBtn
-      Left = 264
+      Left = 272
       Top = 14
       Width = 75
       Height = 25

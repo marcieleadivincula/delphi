@@ -3,8 +3,8 @@ object form_cadCidade: Tform_cadCidade
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Cadatro de Cidade'
-  ClientHeight = 250
-  ClientWidth = 478
+  ClientHeight = 287
+  ClientWidth = 534
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,10 +21,12 @@ object form_cadCidade: Tform_cadCidade
   object pnlCadCidade: TPanel
     Left = 0
     Top = 0
-    Width = 478
-    Height = 209
+    Width = 534
+    Height = 246
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 478
+    ExplicitHeight = 209
     object lbCodigo: TLabel
       Left = 32
       Top = 16
@@ -59,6 +61,7 @@ object form_cadCidade: Tform_cadCidade
       Width = 179
       Height = 21
       NumbersOnly = True
+      ReadOnly = True
       TabOrder = 0
       OnEnter = editCodigoEnter
       OnExit = editCodigoExit
@@ -82,11 +85,13 @@ object form_cadCidade: Tform_cadCidade
   end
   object pnlBtnsCidade: TPanel
     Left = 0
-    Top = 209
-    Width = 478
+    Top = 246
+    Width = 534
     Height = 41
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 209
+    ExplicitWidth = 478
     object btnSalvar: TBitBtn
       Left = 32
       Top = 6

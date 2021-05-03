@@ -1,12 +1,12 @@
-unit Obj_Cidade;
+unit Obj_City;
 
 interface
 
 uses
-    unit_dados, System.SysUtils, Vcl.Dialogs, System.UITypes, System.Classes, FireDAC.Comp.Client, FireDAC.Stan.Param;
+    unit_dados, FireDAC.Comp.Client, System.SysUtils, Vcl.Dialogs, System.UITypes, FireDAC.Stan.Param, System.Classes, Data.DB;
 
 type
-    TObj_Cidade = class
+    TObj_City = class
       private
             codigo: integer;
             descricao:string;
@@ -34,7 +34,7 @@ implementation
 
 { TObj_Cidade }
 
-function TObj_Cidade.delete:boolean;
+function TObj_City.delete: boolean;
 var
   qrDelete: TFDQuery;
 begin
@@ -56,9 +56,10 @@ begin
    end;
 
    qrDelete.Free;
+
 end;
 
-function TObj_Cidade.existeRelacionamentoByEndereco: boolean;
+function TObj_City.existeRelacionamentoByEndereco: boolean;
 var
   qrSelect: TFDQuery;
 begin
@@ -88,7 +89,27 @@ begin
 
 end;
 
-function TObj_Cidade.getUltimoCodigoInserido: integer;
+function TObj_City.getCep: string;
+begin
+     result := self.cep;
+end;
+
+function TObj_City.getCodigo: integer;
+begin
+     result := self.codigo;
+end;
+
+function TObj_City.getDescricao: string;
+begin
+     result := self.descricao;
+end;
+
+function TObj_City.getStatus: byte;
+begin
+     result := self.status;
+end;
+
+function TObj_City.getUltimoCodigoInserido: integer;
 var
   qrSelectLastId: TFDQuery;
 begin
@@ -111,9 +132,10 @@ begin
    end;
 
    qrSelectLastId.Free;
+
 end;
 
-procedure TObj_Cidade.insert;
+procedure TObj_City.insert;
 var
   qrInsert: TFDQuery;
 begin
@@ -133,9 +155,10 @@ begin
    end;
 
    qrInsert.Free;
+
 end;
 
-function TObj_Cidade.select: boolean;
+function TObj_City.select: boolean;
 var
   qrSelect: TFDQuery;
 begin
@@ -143,7 +166,7 @@ begin
    qrSelect := TFDQuery.Create(nil);
    qrSelect.Connection := dm_dados.TFDConn;
    qrSelect.SQL.Clear;
-   qrSelect.SQL.Add('SELECT * FROM cidade WHERE (codigo = :codigo)');
+   qrSelect.SQL.Add('SELECT * FROM cidade WHERE(codigo = :codigo)');
    qrSelect.Params[0].AsInteger := self.getCodigo;
 
    try
@@ -162,9 +185,30 @@ begin
    end;
 
    qrSelect.Free;
+
 end;
 
-procedure TObj_Cidade.update;
+procedure TObj_City.setCep(cep: string);
+begin
+     self.cep := cep;
+end;
+
+procedure TObj_City.setCodigo(codigo: integer);
+begin
+     self.codigo := codigo;
+end;
+
+procedure TObj_City.setDescricao(descricao: string);
+begin
+     self.descricao := descricao;
+end;
+
+procedure TObj_City.setStatus(status: byte);
+begin
+     self.status := status;
+end;
+
+procedure TObj_City.update;
 var
   qrUpdate: TFDQuery;
 begin
@@ -184,46 +228,7 @@ begin
    end;
 
    qrUpdate.Free;
-end;
 
-function TObj_Cidade.getCep: string;
-begin
-    result := self.cep;
-end;
-
-function TObj_Cidade.getCodigo: integer;
-begin
-    result := self.codigo;
-end;
-
-function TObj_Cidade.getDescricao: string;
-begin
-    result := self.descricao;
-end;
-
-function TObj_Cidade.getStatus: byte;
-begin
-    result := self.status;
-end;
-
-procedure TObj_Cidade.setCep(cep: string);
-begin
-    self.cep := cep;
-end;
-
-procedure TObj_Cidade.setCodigo(codigo: integer);
-begin
-    self.codigo := codigo;
-end;
-
-procedure TObj_Cidade.setDescricao(descricao: string);
-begin
-    self.descricao := descricao;
-end;
-
-procedure TObj_Cidade.setStatus(status: byte);
-begin
-    self.status := status;
 end;
 
 end.

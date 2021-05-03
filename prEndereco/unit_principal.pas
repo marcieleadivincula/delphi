@@ -16,6 +16,10 @@ type
     mBairro: TMenuItem;
     mLogradouro: TMenuItem;
     mEndereco: TMenuItem;
+    Consultas1: TMenuItem;
+    Endereoporcidade1: TMenuItem;
+    Endereoporestado1: TMenuItem;
+    Endereoporpas1: TMenuItem;
     procedure mCidadeClick(Sender: TObject);
     procedure mBairroClick(Sender: TObject);
     procedure mEstadoClick(Sender: TObject);

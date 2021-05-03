@@ -11,6 +11,7 @@ object form_cadLogradouro: Tform_cadLogradouro
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object pnlBtnsLogradouro: TPanel
@@ -20,8 +21,6 @@ object form_cadLogradouro: Tform_cadLogradouro
     Height = 60
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 192
-    ExplicitWidth = 529
     object btnSalvar: TBitBtn
       Left = 40
       Top = 22
@@ -63,8 +62,6 @@ object form_cadLogradouro: Tform_cadLogradouro
     Height = 194
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 529
-    ExplicitHeight = 192
     object lbCodigo: TLabel
       Left = 40
       Top = 24
