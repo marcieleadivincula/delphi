@@ -24,8 +24,6 @@ object form_cadEstado: Tform_cadEstado
     Height = 177
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 487
-    ExplicitHeight = 212
     object lbCodigo: TLabel
       Left = 32
       Top = 16
@@ -61,6 +59,8 @@ object form_cadEstado: Tform_cadEstado
       Height = 21
       NumbersOnly = True
       TabOrder = 0
+      OnEnter = editCodigoEnter
+      OnExit = editCodigoExit
     end
     object editSigla: TEdit
       Left = 272
@@ -86,8 +86,6 @@ object form_cadEstado: Tform_cadEstado
     Height = 58
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 212
-    ExplicitWidth = 487
     object btnSalvar: TBitBtn
       Left = 32
       Top = 14

@@ -12,6 +12,9 @@ object form_cadLogradouro: Tform_cadLogradouro
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object pnlBtnsLogradouro: TPanel
@@ -28,6 +31,7 @@ object form_cadLogradouro: Tform_cadLogradouro
       Height = 25
       Caption = '&Salvar'
       TabOrder = 0
+      OnClick = btnSalvarClick
     end
     object btnExcluir: TBitBtn
       Left = 152
@@ -36,6 +40,7 @@ object form_cadLogradouro: Tform_cadLogradouro
       Height = 25
       Caption = '&Excluir'
       TabOrder = 1
+      OnClick = btnExcluirClick
     end
     object btnCancelar: TBitBtn
       Left = 264
@@ -89,6 +94,8 @@ object form_cadLogradouro: Tform_cadLogradouro
       Height = 21
       NumbersOnly = True
       TabOrder = 0
+      OnEnter = editCodigoEnter
+      OnExit = editCodigoExit
     end
     object editLogradouro: TEdit
       Left = 40

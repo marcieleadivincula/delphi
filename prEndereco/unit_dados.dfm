@@ -12,6 +12,7 @@ object dm_dados: Tdm_dados
       'Server=localhost'
       'CharacterSet=latin1'
       'DriverID=MySQL')
+    Connected = True
     Transaction = TFDTransaction
     Left = 80
     Top = 24

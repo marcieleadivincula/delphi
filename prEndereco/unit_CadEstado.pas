@@ -33,6 +33,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure spConsultarClick(Sender: TObject);
+    procedure editCodigoEnter(Sender: TObject);
+    procedure editCodigoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -95,6 +97,26 @@ begin
     end;
 
     self.FormActivate(self);
+end;
+
+procedure Tform_cadEstado.editCodigoEnter(Sender: TObject);
+begin
+     Estado.setStatus(0);
+end;
+
+procedure Tform_cadEstado.editCodigoExit(Sender: TObject);
+begin
+     if (editCodigo.Text = '') then
+        exit;
+
+     Estado.setCodigo(StrToInt(editCodigo.Text));
+
+     if (Estado.select) then
+        begin
+            editEstado.Text := Estado.getDescricao;
+            editSigla.Text := Estado.getSigla;
+            Estado.setStatus(1);
+        end;
 end;
 
 procedure Tform_cadEstado.FormActivate(Sender: TObject);

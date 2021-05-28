@@ -52,6 +52,8 @@ object form_cadPais: Tform_cadPais
       Height = 21
       NumbersOnly = True
       TabOrder = 0
+      OnEnter = editCodigoEnter
+      OnExit = editCodigoExit
     end
     object editPais: TEdit
       Left = 48
@@ -85,6 +87,7 @@ object form_cadPais: Tform_cadPais
       Height = 25
       Caption = 'Excluir'
       TabOrder = 1
+      OnClick = btnExcluirClick
     end
     object btnCancelar: TBitBtn
       Left = 312

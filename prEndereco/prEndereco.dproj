@@ -129,17 +129,17 @@
             <Form>form_cadLogradouro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="classes\Obj_Utilitario.pas"/>
-        <DCCReference Include="classes\Obj_Bairro.pas"/>
-        <DCCReference Include="classes\Obj_Estado.pas"/>
         <DCCReference Include="unit_Consulta.pas">
             <Form>form_Consulta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="classes\Obj_Logradouro.pas"/>
-        <DCCReference Include="classes\Obj_Pais.pas"/>
-        <DCCReference Include="classes\Obj_Consulta.pas"/>
-        <DCCReference Include="classes\Obj_Cidade.pas"/>
+        <DCCReference Include="Obj_Bairro.pas"/>
+        <DCCReference Include="Obj_Cidade.pas"/>
+        <DCCReference Include="Obj_Consulta.pas"/>
+        <DCCReference Include="Obj_Estado.pas"/>
+        <DCCReference Include="Obj_Logradouro.pas"/>
+        <DCCReference Include="Obj_Pais.pas"/>
+        <DCCReference Include="Obj_Utilitario.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

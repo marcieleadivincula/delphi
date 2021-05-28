@@ -9,14 +9,14 @@ uses
   unit_dados in 'unit_dados.pas' {dm_dados: TDataModule},
   unit_principal in 'unit_principal.pas' {form_principal},
   unit_CadLogradouro in 'unit_CadLogradouro.pas' {form_cadLogradouro},
-  Obj_Utilitario in 'classes\Obj_Utilitario.pas',
-  Obj_Bairro in 'classes\Obj_Bairro.pas',
-  Obj_Estado in 'classes\Obj_Estado.pas',
   unit_Consulta in 'unit_Consulta.pas' {form_Consulta},
-  Obj_Logradouro in 'classes\Obj_Logradouro.pas',
-  Obj_Pais in 'classes\Obj_Pais.pas',
-  Obj_Consulta in 'classes\Obj_Consulta.pas',
-  Obj_Cidade in 'classes\Obj_Cidade.pas';
+  Obj_Bairro in 'Obj_Bairro.pas',
+  Obj_Cidade in 'Obj_Cidade.pas',
+  Obj_Consulta in 'Obj_Consulta.pas',
+  Obj_Estado in 'Obj_Estado.pas',
+  Obj_Logradouro in 'Obj_Logradouro.pas',
+  Obj_Pais in 'Obj_Pais.pas',
+  Obj_Utilitario in 'Obj_Utilitario.pas';
 
 {$R *.res}
 

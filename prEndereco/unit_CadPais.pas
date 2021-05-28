@@ -30,6 +30,9 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure editCodigoEnter(Sender: TObject);
+    procedure editCodigoExit(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,6 +46,24 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure Tform_cadPais.btnExcluirClick(Sender: TObject);
+begin
+     if (Pais.getStatus = 0) then
+         exit;
+
+     if (Pais.existeRelacionamentoByEndereco) then
+         begin
+           ShowMessage('Registro está vinculado, não pode ser excluído!');
+           exit;
+         end;
+
+     if (Application.MessageBox('Confirma a exclusão do registro?', 'Confirmação', MB_yesNo + MB_defButton2 + MB_ICONQUESTION) = idNo) then
+         exit;
+
+     if (Pais.delete) then
+         self.FormActivate(self);
+end;
 
 procedure Tform_cadPais.btnSairClick(Sender: TObject);
 begin
@@ -66,6 +87,25 @@ begin
     end;
 
     self.FormActivate(self);
+end;
+
+procedure Tform_cadPais.editCodigoEnter(Sender: TObject);
+begin
+     Pais.setStatus(0);
+end;
+
+procedure Tform_cadPais.editCodigoExit(Sender: TObject);
+begin
+     if (editCodigo.Text = '') then
+        exit;
+
+     Pais.setCodigo(StrToInt(editCodigo.Text));
+
+     if (Pais.select) then
+        begin
+            editPais.Text := Pais.getDescricao;
+            Pais.setStatus(1);
+        end;
 end;
 
 procedure Tform_cadPais.FormActivate(Sender: TObject);
@@ -104,7 +144,6 @@ begin
          end
      else
         FormActivate(self);
-
 end;
 
 end.

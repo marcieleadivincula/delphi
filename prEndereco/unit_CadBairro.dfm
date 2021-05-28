@@ -13,6 +13,9 @@ object form_cadBairro: Tform_cadBairro
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object pnlCadBairro: TPanel
@@ -37,10 +40,11 @@ object form_cadBairro: Tform_cadBairro
       Caption = 'Bairro'
     end
     object spConsultar: TSpeedButton
-      Left = 168
+      Left = 159
       Top = 40
       Width = 23
       Height = 22
+      OnClick = spConsultarClick
     end
     object editCodigo: TEdit
       Left = 40
@@ -48,6 +52,8 @@ object form_cadBairro: Tform_cadBairro
       Width = 113
       Height = 21
       TabOrder = 0
+      OnEnter = editCodigoEnter
+      OnExit = editCodigoExit
     end
     object editBairro: TEdit
       Left = 40
@@ -71,6 +77,7 @@ object form_cadBairro: Tform_cadBairro
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
+      OnClick = btnSalvarClick
     end
     object btnExcluir: TBitBtn
       Left = 200
